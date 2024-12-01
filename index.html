@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Manadhe</h1>
+    </header>
+    <main class="movie-grid">
+        <script>
+            const movies = [
+                { id: 1, title: "lucky baskar", thumbnail: "https://m.media-amazon.com/images/M/MV5BMjEzN2ZjYjUtZTI3NC00MzMyLWJiNDAtMDBiZGEzNTBiY2RkXkEyXkFqcGc@._V1_.jpg" },
+                { id: 2, title: "Movie 2", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 3, title: "Movie 3", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 4, title: "Movie 4", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 5, title: "Movie 5", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 6, title: "Movie 6", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 7, title: "Movie 7", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 8, title: "Movie 8", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 9, title: "Movie 9", thumbnail: "https://via.placeholder.com/300x450" },
+                { id: 10, title: "Movie 10", thumbnail: "https://via.placeholder.com/300x450" }
+            ];
+
+            movies.forEach(movie => {
+                document.write(`
+                    <div class="movie-item" onclick="openModal(${movie.id}, '${movie.title}')">
+                        <img src="${movie.thumbnail}" alt="${movie.title}">
+                        <div class="movie-title">${movie.title}</div>
+                    </div>
+                `);
+            });
+        </script>
+    </main>
+
+    <!-- Modal -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <video id="modal-trailer" controls>
+                <source src="trailer.mp4" type="video/mp4">
+            </video>
+            <div class="modal-buttons">
+                <button onclick="watchMovie()">Watch</button>
+                <button onclick="downloadMovie()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
